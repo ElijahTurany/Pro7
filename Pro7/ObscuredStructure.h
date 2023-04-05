@@ -1,32 +1,39 @@
 #pragma once
 #include <vector>
 
-template <typename T>
 class ObscuredStructure {
 public:
-    virtual void add(T data) = 0;
+    virtual void add(int data) = 0;
     virtual void remove() = 0;
-    virtual T peek() = 0;
-    virtual T size() = 0;
+    virtual int peek() = 0;
+    virtual int size() = 0;
 };
 
 //Stack
-template <typename T>
 class Child1 : public ObscuredStructure {
 private:
-    vector<T> internalVec;
+    //vector<int> internalVec;
+    int internal = 0;
 public:
     Child1() {}
 
-    void add(T data) {
-        internalVec.push_back(T);
+    void add(int data) {
+        //internalVec.push_back(data);
+        internal++;
     }
 
     void remove() {
-        internalVec.pop_back();
+        //internalVec.pop_back();
+        internal--;
     }
 
-    T peek() {
-        return internalVec[internalVec.size() -1];
+    int peek() {
+        //return internalVec[internalVec.size() -1];
+        return internal;
+    }
+
+    int size() {
+        //return internalVec.size();
+        return internal;
     }
 };
